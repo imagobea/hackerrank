@@ -117,12 +117,10 @@ function printSinglyLinkedList(node, sep, ws) {
  *
  */
 function reverse(head) {
-    if (head === null) return;
-
     let current = head;
     let next = null;
     let previous = null;
-    while (current) {
+    while (current !== null) {
         next = current.next;     // Save the next node
         current.next = previous; // Reverse the link
         previous = current;      // Move the prev pointer one step forward
