@@ -1,64 +1,44 @@
-# Print in Reverse
+# Reverse a linked list
 
 ## Problem
 
 ### Description
 
-Given a pointer to the head of a singly-linked list, print each `data` value from the reversed list. If the given list is empty, do not print anything.
+Given the pointer to the head node of a linked list, change the next pointers of the nodes so that their order is reversed. The head pointer given may be null meaning that the initial list is empty.
 
 ### Task
 
-Complete the `reversePrint` function.
+Complete the `reverse` function.
 
 **Parameters**
 
-- SinglyLinkedListNode pointer head: a reference to the head of the list
+- SinglyLinkedListNode pointer head: a reference to the head of a list
 
 **Returns**
 
-- Void. For each node, print its `data` value on a new line.
+- SinglyLinkedListNode pointer: a reference to the head of the reversed list
 
 ### Samples input/output
 
 ```
-3   // n Lists
-5   // n elements in L1
-16  // n1 in L1
-12  // n2 in L1
-4   // n3 in L1
-2   // n4 in L1
-5   // n5 in L1
-3   // n elements in L2 ... etc.
-7
-3
-9
-5
-5
-1
-18
-3
-13
-```
-```
-5
+1   // t, number of test cases
+5   // n, the number of elements in the linked list
+1   // Each of the next lines contains an integer, the `data` values
 2
+3
 4
-12
-16
-9
-3
-7
-13
-3
-18
-1
 5
+```
+```
+5 4 3 2 1 
 ```
 
 ## Solution
 
 ```js
 'use strict';
+
+const fs = require('fs');
 
 process.stdin.resume();
 process.stdin.setEncoding('utf-8');
@@ -108,21 +88,22 @@ const SinglyLinkedList = class {
     }
 };
 
-function printSinglyLinkedList(node, sep) {
+function printSinglyLinkedList(node, sep, ws) {
     while (node != null) {
-        process.stdout.write(String(node.data));
+        ws.write(String(node.data));
 
         node = node.next;
 
         if (node != null) {
-            process.stdout.write(sep);
+            ws.write(sep);
         }
     }
 }
 
 /*
- * Complete the 'reversePrint' function below.
+ * Complete the 'reverse' function below.
  *
+ * The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
  * The function accepts INTEGER_SINGLY_LINKED_LIST llist as parameter.
  */
 
@@ -135,13 +116,26 @@ function printSinglyLinkedList(node, sep) {
  * }
  *
  */
-function reversePrint(head) {
+function reverse(head) {
     if (head === null) return;
-    reversePrint(head.next);
-    console.log(head.data);
+
+    let current = head;
+    let next = null;
+    let previous = null;
+    while (current) {
+        next = current.next;     // Save the next node
+        current.next = previous; // Reverse the link
+        previous = current;      // Move the prev pointer one step forward
+        current = next;          // Move the current pointer one step forward
+    }
+
+    // The `previous` pointer is now pointing to the new head
+    return previous;
 }
 
 function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
     const tests = parseInt(readLine(), 10);
 
     for (let testsItr = 0; testsItr < tests; testsItr++) {
@@ -154,11 +148,16 @@ function main() {
             llist.insertNode(llistItem);
         }
 
-        reversePrint(llist.head);
+        let llist1 = reverse(llist.head);
+
+        printSinglyLinkedList(llist1, " ", ws)
+        ws.write("\n");
     }
+
+    ws.end();
 }
 ```
 
 ## Thougths
 
-Recursion.
+3 pointers.

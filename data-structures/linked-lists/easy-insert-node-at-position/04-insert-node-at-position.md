@@ -25,12 +25,12 @@ Complete the `insertNodeAtPosition` function.
 ### Samples input/output
 
 ```
-3
+3   // List has 3 elements
 16
 13
 7
-1
-2
+1   // New elements data
+2   // New elements position
 ```
 ```
 16 13 1 7
