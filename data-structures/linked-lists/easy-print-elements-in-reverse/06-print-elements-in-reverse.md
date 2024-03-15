@@ -21,14 +21,14 @@ Complete the `reversePrint` function.
 ### Samples input/output
 
 ```
-3   // n Lists
-5   // n elements in L1
-16  // n1 in L1
-12  // n2 in L1
-4   // n3 in L1
-2   // n4 in L1
-5   // n5 in L1
-3   // n elements in L2 ... etc.
+3   # The number of test cases
+5   # The number of elements in the (first) linked list
+16  # the node data values in order
+12
+4
+2
+5
+3
 7
 3
 9

@@ -22,8 +22,8 @@ Complete the `deleteNode` function.
 ### Samples input/output
 
 ```
-8
-20
+8   # The number of elements in the linked list
+20  # the node data values in order
 6
 2
 19
@@ -31,7 +31,7 @@ Complete the `deleteNode` function.
 4
 15
 9
-3
+3   # The position of the node to delete
 ```
 ```
 20 6 2 7 4 15 9

@@ -25,12 +25,12 @@ Complete the `insertNodeAtPosition` function.
 ### Samples input/output
 
 ```
-3   // List has 3 elements
-16
+3   # The number of elements in the linked list
+16  # the data values for each node
 13
 7
-1   // New elements data
-2   // New elements position
+1   # The data of the node that is to be inserted
+2   # and the position
 ```
 ```
 16 13 1 7

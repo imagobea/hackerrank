@@ -21,7 +21,21 @@ Complete the `insertNodeAtHead` function.
 
 ### Samples input/output
 
-Not clear, sorry!
+```
+5       # The number of elements in the linked list
+383     # the value that needs to be inserted at head
+484
+392
+975
+321
+```
+```
+321
+975
+392
+484
+383
+```
 
 ## Solution
 

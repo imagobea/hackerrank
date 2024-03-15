@@ -22,10 +22,9 @@ Complete the `insertNodeAtTail` function.
 ### Samples input/output
 
 ```
-STDIN       Function
------       --------
-5           size of linked list n = 5
-141         linked list data values 141..474 302
+5       # The number of elements in the linked list
+141     # the value that needs to be inserted at tail
+302
 164
 530
 474

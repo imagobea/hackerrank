@@ -21,8 +21,8 @@ Complete the `printLinkedList` function.
 ### Samples input/output
 
 ```
-2
-16
+2   # The number of elements in the linked list
+16  # the data values for each node
 13
 ```
 ```
