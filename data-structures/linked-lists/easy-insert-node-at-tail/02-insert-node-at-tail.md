@@ -112,12 +112,12 @@ function insertNodeAtTail(head, data) {
         head = newNode;
     } else {
         // Traverse the list to find the last node
-        let lastNode = head;
-        while (lastNode.next !== null) {
-            lastNode = lastNode.next;
+        let currentNode = head;
+        while (currentNode.next !== null) {
+            currentNode = currentNode.next;
         }
         // Add `newNode` to the end of the list
-        lastNode.next = newNode;
+        currentNode.next = newNode;
     }
 
     return head;

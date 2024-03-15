@@ -1,39 +1,40 @@
-# Insert a node at a specific position in a linked list
+# Delete a node
 
 ## Problem
 
 ### Description
 
-Given the pointer to the head node of a linked list and an integer to insert at a certain position, create a new node with the given integer as its `data` attribute, insert this node at the desired position and return the head node.
-
-A position of 0 indicates head, a position of 1 indicates one node away from the head and so on. The head pointer given may be null meaning that the initial list is empty.
+Delete the node at a given position in a linked list and return a reference to the head node. The head is at position 0. The list may be empty after you delete the node. In that case, return a null value.
 
 ### Task
 
-Complete the `insertNodeAtPosition` function.
+Complete the `deleteNode` function.
 
 **Parameters**
 
-- head: a SinglyLinkedListNode pointer to the head of the list
-- data: an integer value to insert as data in your new node
-- position: an integer position to insert the new node, zero based indexing
+- SinglyLinkedListNode pointer llist: a reference to the head node in the list
+- int position: the position of the node to remove
 
 **Returns**
 
-- SinglyLinkedListNode pointer: a reference to the head of the revised list
+- SinglyLinkedListNode pointer: a reference to the head of the modified list
 
 ### Samples input/output
 
 ```
-3
-16
-13
-7
-1
+8
+20
+6
 2
+19
+7
+4
+15
+9
+3
 ```
 ```
-16 13 1 7
+20 6 2 7 4 15 9
 ```
 
 ## Solution
@@ -104,13 +105,12 @@ function printSinglyLinkedList(node, sep, ws) {
 }
 
 /*
- * Complete the 'insertNodeAtPosition' function below.
+ * Complete the 'deleteNode' function below.
  *
  * The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
  * The function accepts following parameters:
  *  1. INTEGER_SINGLY_LINKED_LIST llist
- *  2. INTEGER data
- *  3. INTEGER position
+ *  2. INTEGER position
  */
 
 /*
@@ -122,38 +122,31 @@ function printSinglyLinkedList(node, sep, ws) {
  * }
  *
  */
-function insertNodeAtPosition(head, data, position) {
-    const newNode = new SinglyLinkedListNode(data);
-
-    // Handle empty list, including edge cases
+function deleteNode(head, position) {
     if (head === null) {
-        if (position === 0) {
-            return newNode;
-        } else {
-            throw new Error("Empty list, position out of bounds");
-        }
+        throw new Error("List is empty, nothing to do");
     }
 
-    // Insert at head
+    // Removing at position zero
     if (position === 0) {
-        newNode.next = head;
-        return newNode;
+        const newHead = head.next;
+        // The list may be empty after you delete the node
+        return newHead;
     }
 
-    // Traverse the list till finding the node where to insert the given data
+    // Removing at any other position
     let currentNode = head;
-    let lastNode;
-    for (let i = 0; i < position; i++) {
+    let prevsNode;
+    for (let i = 0; i < position; i++) { // Acc to ChatGPT, using i < position - 1 is often preferred
         if (currentNode === null) {
-            throw new Error("Reached end of list, position out of bounds");
+            // Position is out of bounds
+            return head;
         }
-        lastNode = currentNode;
+        prevsNode = currentNode;
         currentNode = currentNode.next;
     }
-
-    // Insert at position
-    lastNode.next = newNode;
-    newNode.next = currentNode;
+    prevsNode.next = currentNode.next;
+    currentNode.next = null; // Disconnect the removed node
     return head;
 }
 
@@ -169,13 +162,11 @@ function main() {
         llist.insertNode(llistItem);
     }
 
-    const data = parseInt(readLine(), 10);
-
     const position = parseInt(readLine(), 10);
 
-    let llist_head = insertNodeAtPosition(llist.head, data, position);
+    let llist1 = deleteNode(llist.head, position);
 
-    printSinglyLinkedList(llist_head, " ", ws)
+    printSinglyLinkedList(llist1, " ", ws)
     ws.write("\n");
 
     ws.end();
@@ -183,5 +174,3 @@ function main() {
 ```
 
 ## Thougths
-
-Loops till position. Needs 2 pointers.
