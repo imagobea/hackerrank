@@ -124,7 +124,7 @@ function printSinglyLinkedList(node, sep, ws) {
  */
 function deleteNode(head, position) {
     if (head === null) {
-        throw new Error("List is empty, nothing to do");
+        throw new Error("Empty list, nothing to do");
     }
 
     // Removing at position zero
@@ -135,18 +135,18 @@ function deleteNode(head, position) {
     }
 
     // Removing at any other position
-    let currentNode = head;
-    let prevsNode;
-    for (let i = 0; i < position; i++) { // Acc to ChatGPT, using i < position - 1 is often preferred
+    let lastNode = head;
+    let currentNode = head.next;
+    for (let i = 1; i < position; i++) { // Acc to ChatGPT, using i < position - 1 is best..
         if (currentNode === null) {
-            // Position is out of bounds
-            return head;
+            throw new Error("Reached end of list, position out of bounds");
         }
-        prevsNode = currentNode;
+        lastNode = currentNode;
         currentNode = currentNode.next;
     }
-    prevsNode.next = currentNode.next;
-    currentNode.next = null; // Disconnect the removed node
+
+    // Remove at position
+    lastNode.next = currentNode.next;
     return head;
 }
 

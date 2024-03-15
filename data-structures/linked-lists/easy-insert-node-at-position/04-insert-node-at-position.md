@@ -141,9 +141,9 @@ function insertNodeAtPosition(head, data, position) {
     }
 
     // Traverse the list till finding the node where to insert the given data
-    let currentNode = head;
-    let lastNode;
-    for (let i = 0; i < position; i++) {
+    let lastNode = head;
+    let currentNode = head.next;
+    for (let i = 1; i < position; i++) {
         if (currentNode === null) {
             throw new Error("Reached end of list, position out of bounds");
         }
