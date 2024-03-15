@@ -95,16 +95,11 @@ const SinglyLinkedList = class {
  *
  */
 function printLinkedList(head) {
-    // If `head` is null there is nothing to print
-    if (head === null) return;
-
-    // Print till next is null, aka tail
-    while (head.next !== null) {
-        console.log(head.data);
-        head = head.next;
+    let currentNode = head;
+    while (currentNode !== null) {
+        console.log(currentNode.data);
+        currentNode = currentNode.next;
     }
-    // Print tails data
-    console.log(head.data);
 }
 
 function main() {
