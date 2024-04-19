@@ -27,7 +27,7 @@ Complete the `mergeLists` function.
 1   # the node data values
 2
 3
-2   # the number of nodes in t1 second linked list
+2   # the number of nodes in t2 second linked list
 3   # the node data values
 4
 ```
