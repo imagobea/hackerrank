@@ -21,9 +21,9 @@ Complete the `reverse` function.
 ### Samples input/output
 
 ```
-1   # The number of test cases
-5   # The number of elements in the linked list
-1   # the node data values in order
+1   # The number of test cases (t), 1
+5   # The number of nodes in t1
+1   # the node data values
 2
 3
 4

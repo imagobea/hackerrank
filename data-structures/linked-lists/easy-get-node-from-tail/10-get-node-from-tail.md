@@ -22,15 +22,15 @@ Complete the `getNode` function.
 ### Samples input/output
 
 ```
-2   # The number of test cases
-1   # The number of nodes in the first list
+2   # The number of test cases (t), 2
+1   # The number of nodes in t1
 1   # the node data values
 0   # the position from the tail to retrieve the value of
-3   # The number of nodes in the second list
+3   # The number of nodes in t2
 3   # the node data values
 2
 1
-2   # the position from the tail..
+2   # the position from the tail to retrieve the value of
 ```
 ```
 1

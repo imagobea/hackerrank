@@ -21,19 +21,19 @@ Complete the `reversePrint` function.
 ### Samples input/output
 
 ```
-3   # The number of test cases
-5   # The number of elements in the (first) linked list
-16  # the node data values in order
+3   # The number of test cases (t), 3
+5   # The number of nodes in t1
+16  # the node data values
 12
 4
 2
 5
-3
-7
+3   # The number of nodes in t2
+7   # the node data values
 3
 9
-5
-5
+5   # The number of nodes in t3
+5   # the node data values
 1
 18
 3
