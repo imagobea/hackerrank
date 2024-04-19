@@ -184,6 +184,11 @@ function main() {
 
 ## Thougths
 
+Time Complexity:
+O(n + m)
+
+[Editorial](https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/editorial)
+
 Put the elements on a fresh list.
 Choose a head, then create a pointer for the new list - just like when traversing any list without overwriting its head reference.
 Remember to move this pointer forward in every loop, eg `current = current.next`.

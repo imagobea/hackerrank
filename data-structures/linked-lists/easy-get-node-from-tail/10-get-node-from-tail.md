@@ -163,4 +163,9 @@ function main() {
 
 ## Thougths
 
-Solution above assumes that "space" is not an issue, hence the additional structure that stores all node datas. Editorial in HackerRank suggests to traverse the list twice: first to calculate the actual length, second to discover the required value (`positionFromHead` equals `length - position - 1`).
+Time Complexity:
+O(n)
+
+[Editorial](https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail/editorial)
+
+Solution above assumes that "space" is not an issue, hence the additional structure that stores all node "datas". Editorial in HackerRank suggests to traverse the list twice: first to calculate the actual length, second to discover the solution ie node value (`positionFromHead` equals `length - position - 1`).

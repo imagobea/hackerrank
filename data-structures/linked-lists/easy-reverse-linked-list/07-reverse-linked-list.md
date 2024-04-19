@@ -158,4 +158,9 @@ function main() {
 
 ## Thougths
 
+Time Complexity:
+O(n)
+
+[Editorial](https://www.hackerrank.com/challenges/reverse-a-linked-list/editorial)
+
 3 pointers.

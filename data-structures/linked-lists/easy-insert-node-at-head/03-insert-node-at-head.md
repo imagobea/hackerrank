@@ -142,4 +142,6 @@ function main() {
 
 ## Thougths
 
-N/a
+Time Complexity:
+
+[Editorial](https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/editorial)

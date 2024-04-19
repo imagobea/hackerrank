@@ -118,4 +118,6 @@ function main() {
 
 ## Thougths
 
-N/a
+Time Complexity:
+
+[Editorial](https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list/editorial)

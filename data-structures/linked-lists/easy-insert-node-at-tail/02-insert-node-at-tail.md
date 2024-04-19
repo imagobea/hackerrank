@@ -144,4 +144,7 @@ function main() {
 
 ## Thougths
 
-N/a
+Time Complexity:
+O(n), `n` Number of elements in the linked list
+
+[Editorial](https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list/editorial)

@@ -184,4 +184,9 @@ function main() {
 
 ## Thougths
 
+Time Complexity:
+O(n)
+
+[Editorial](https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/editorial)
+
 Loops till position. Needs 2 pointers.

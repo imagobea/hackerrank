@@ -19,3 +19,7 @@
 ```
 
 ## Thougths
+
+Time Complexity:
+
+[Editorial]()

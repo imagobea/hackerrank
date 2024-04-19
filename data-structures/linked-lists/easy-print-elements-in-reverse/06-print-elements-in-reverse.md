@@ -161,4 +161,9 @@ function main() {
 
 ## Thougths
 
+Time Complexity:
+O(n)
+
+[Editorial](https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/editorial)
+
 Recursion.

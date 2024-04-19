@@ -167,6 +167,11 @@ function main() {
 
 ## Thougths
 
+Time Complexity:
+O(n + m)
+
+[Editorial](https://www.hackerrank.com/challenges/compare-two-linked-lists/editorial)
+
 - The empty list check at the top can be skipped
 - Since we do not have to return the head, it's okay to "overwrite" input params
 - Better to be explicit than not: e.g. `if (head === null)` instead of `if (head)`
