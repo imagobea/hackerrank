@@ -127,26 +127,31 @@ function deleteNode(head, position) {
         throw new Error("Empty list, nothing to do");
     }
 
-    // Removing at position zero
+    // If the head needs to be deleted
     if (position === 0) {
         const newHead = head.next;
-        // The list may be empty after you delete the node
+        head.next = null; // Disconnect the old head from the list
         return newHead;
     }
 
-    // Removing at any other position
-    let lastNode = head;
-    let currentNode = head.next;
-    for (let i = 1; i < position; i++) { // Acc to ChatGPT, using i < position - 1 is best..
-        if (currentNode === null) {
-            throw new Error("Reached end of list, position out of bounds");
+    // Traverse the list to find the node just before the position to be deleted
+    let currentNode = head;
+    for (let i = 0; i < position - 1; i++) {
+        if (currentNode.next === null) {
+            throw new Error("Position out of bounds"); // Invalid position
         }
-        lastNode = currentNode;
         currentNode = currentNode.next;
     }
 
-    // Remove at position
-    lastNode.next = currentNode.next;
+    // currentNode is now the node just before the one to be deleted
+    const nodeToDelete = currentNode.next;
+    if (nodeToDelete !== null) {
+        currentNode.next = nodeToDelete.next; // Bypass the node to be deleted
+        nodeToDelete.next = null; // Disconnect the deleted node from the list
+    } else {
+        throw new Error("Position out of bounds"); // Invalid position
+    }
+
     return head;
 }
 
