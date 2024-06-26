@@ -125,35 +125,27 @@ function printSinglyLinkedList(node, sep, ws) {
 function insertNodeAtPosition(head, data, position) {
     const newNode = new SinglyLinkedListNode(data);
 
-    // Handle empty list, including edge cases
-    if (head === null) {
-        if (position === 0) {
-            return newNode;
-        } else {
-            throw new Error("Empty list, position out of bounds");
-        }
-    }
-
     // Insert at head
+    // Implicitly handles empty list with insertion at 0
     if (position === 0) {
         newNode.next = head;
         return newNode;
     }
 
     // Traverse the list till finding the node where to insert the given data
-    let lastNode = head;
-    let currentNode = head.next;
-    for (let i = 1; i < position; i++) {
+    let currentNode = head;
+    for (let i = 0; i < position - 1; i++) {
+        // Implicitly handles empty list with position other than 0
         if (currentNode === null) {
-            throw new Error("Reached end of list, position out of bounds");
+            throw new Error("Position out of bounds");
         }
-        lastNode = currentNode;
         currentNode = currentNode.next;
     }
 
     // Insert at position
-    lastNode.next = newNode;
-    newNode.next = currentNode;
+    newNode.next = currentNode.next;
+    currentNode.next = newNode;
+
     return head;
 }
 
@@ -189,4 +181,4 @@ O(n)
 
 [Editorial](https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/editorial)
 
-Loops till position. Needs 2 pointers.
+Loops till position - 1. Doable with a single pointer.
