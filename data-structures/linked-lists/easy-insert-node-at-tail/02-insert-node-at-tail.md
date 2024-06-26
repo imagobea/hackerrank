@@ -108,16 +108,16 @@ function insertNodeAtTail(head, data) {
 
     if (head === null) {
         // If the list is empty, make `newNode` the head
-        head = newNode;
-    } else {
-        // Traverse the list to find the last node
-        let currentNode = head;
-        while (currentNode.next !== null) {
-            currentNode = currentNode.next;
-        }
-        // Add `newNode` to the end of the list
-        currentNode.next = newNode;
+        return newNode;
     }
+
+    // Traverse the list to find the last node
+    let currentNode = head;
+    while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+    }
+    // Add `newNode` to the end of the list
+    currentNode.next = newNode;
 
     return head;
 }
