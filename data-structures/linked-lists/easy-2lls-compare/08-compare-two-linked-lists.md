@@ -128,8 +128,12 @@ function compareLists(llist1, llist2) {
         llist1 = llist1.next;
         llist2 = llist2.next;
     }
-    // If we traversed both, lists are equal (1)
-    return (llist1 === null) && (llist2 === null) ? 1 : 0;
+
+    if (llist1 !== null || llist2 !== null) {
+        return 0;
+    }
+
+    return 1;
 }
 
 function main() {
