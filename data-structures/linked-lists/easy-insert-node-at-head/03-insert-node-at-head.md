@@ -107,14 +107,10 @@ function printSinglyLinkedList(node, sep, ws) {
 function insertNodeAtHead(head, data) {
     const newNode = new SinglyLinkedListNode(data);
 
-    // Inserting at head means head ref will always be newNode
-    // if head is null, return newnode
-    // else newnode.next points at head and return newnode
-    // NB swap conditions for cleaner code
-    if (head !== null) {
-        newNode.next = head;        
-    }
+    // Set the next pointer of the new node to the current head
+    newNode.next = head;        
 
+    // The new node is now the head of the list
     return newNode;
 }
 
@@ -130,8 +126,6 @@ function main() {
     	const llist_head = insertNodeAtHead(llist.head, llistItem);
       	llist.head = llist_head;
     }
-
-
 
     printSinglyLinkedList(llist.head, '\n', ws);
     ws.write('\n');
