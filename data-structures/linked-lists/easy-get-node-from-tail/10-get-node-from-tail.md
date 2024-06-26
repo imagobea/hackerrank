@@ -36,6 +36,7 @@ Complete the `getNode` function.
 1
 3
 ```
+
 ## Solution
 
 ```js
