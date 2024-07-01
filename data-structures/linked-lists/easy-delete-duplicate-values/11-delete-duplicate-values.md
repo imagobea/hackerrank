@@ -116,7 +116,6 @@ function printSinglyLinkedList(node, sep, ws) {
  * }
  *
  */
-
 function removeDuplicates(head) {
     let currentNode = head;
     while (currentNode !== null) {
