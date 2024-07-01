@@ -1,10 +1,10 @@
-# Reverse a Linked List
+# Reverse a Doubly Linked List
 
 ## Problem
 
 ### Description
 
-Given the pointer to the head node of a linked list, change the next pointers of the nodes so that their order is reversed. The head pointer given may be null meaning that the initial list is empty.
+Given the pointer to the head node of a doubly linked list, reverse the order of the nodes in place. That is, change the next and prev pointers of the nodes so that the direction of the list is reversed. Return a reference to the head node of the reversed list.
 
 ### Task
 
@@ -12,25 +12,24 @@ Complete the `reverse` function.
 
 **Parameters**
 
-- SinglyLinkedListNode pointer head: a reference to the head of a list
+- DoublyLinkedListNode head: a reference to the head of a doubly linked list
 
 **Returns**
 
-- SinglyLinkedListNode pointer: a reference to the head of the reversed list
+- DoublyLinkedListNode: a reference to the head of the list
 
 ### Samples input/output
 
 ```
 1   # The number of test cases (t), 1
-5   # The number of nodes in t1
+4   # The number of nodes in t1
 1   # the node data values
 2
 3
 4
-5
 ```
 ```
-5 4 3 2 1 
+4 3 2 1
 ```
 
 ## Solution
@@ -62,33 +61,35 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-const SinglyLinkedListNode = class {
+const DoublyLinkedListNode = class {
     constructor(nodeData) {
         this.data = nodeData;
         this.next = null;
+        this.prev = null;
     }
 };
 
-const SinglyLinkedList = class {
+const DoublyLinkedList = class {
     constructor() {
         this.head = null;
         this.tail = null;
     }
 
     insertNode(nodeData) {
-        const node = new SinglyLinkedListNode(nodeData);
+        let node = new DoublyLinkedListNode(nodeData);
 
         if (this.head == null) {
             this.head = node;
         } else {
             this.tail.next = node;
+            node.prev = this.tail;
         }
 
         this.tail = node;
     }
 };
 
-function printSinglyLinkedList(node, sep, ws) {
+function printDoublyLinkedList(node, sep, ws) {
     while (node != null) {
         ws.write(String(node.data));
 
@@ -103,44 +104,50 @@ function printSinglyLinkedList(node, sep, ws) {
 /*
  * Complete the 'reverse' function below.
  *
- * The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
- * The function accepts INTEGER_SINGLY_LINKED_LIST llist as parameter.
+ * The function is expected to return an INTEGER_DOUBLY_LINKED_LIST.
+ * The function accepts INTEGER_DOUBLY_LINKED_LIST llist as parameter.
  */
 
 /*
  * For your reference:
  *
- * SinglyLinkedListNode {
+ * DoublyLinkedListNode {
  *     int data;
- *     SinglyLinkedListNode next;
+ *     DoublyLinkedListNode next;
+ *     DoublyLinkedListNode prev;
  * }
  *
  */
 function reverse(head) {
+    if (!head) return null;
+
     let current = head;
-    let next = null;
-    let previous = null;
+    let temp = null;
 
     while (current !== null) {
-        next = current.next;     // Save the next node
-        current.next = previous; // Reverse the link
-        previous = current;      // Move the prev pointer one step forward
-        current = next;          // Move the current pointer one step forward
+        temp = current.prev;
+        current.prev = current.next;
+        current.next = temp;
+        current = current.prev;
     }
 
-    // The `previous` pointer is now pointing to the new head
-    return previous;
+    if (temp !== null) {
+        head = temp.prev;
+    }
+
+    return head;
+
 }
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const tests = parseInt(readLine(), 10);
+    const t = parseInt(readLine(), 10);
 
-    for (let testsItr = 0; testsItr < tests; testsItr++) {
+    for (let tItr = 0; tItr < t; tItr++) {
         const llistCount = parseInt(readLine(), 10);
 
-        let llist = new SinglyLinkedList();
+        let llist = new DoublyLinkedList();
 
         for (let i = 0; i < llistCount; i++) {
             const llistItem = parseInt(readLine(), 10);
@@ -149,7 +156,7 @@ function main() {
 
         let llist1 = reverse(llist.head);
 
-        printSinglyLinkedList(llist1, " ", ws)
+        printDoublyLinkedList(llist1, " ", ws)
         ws.write("\n");
     }
 
@@ -162,6 +169,6 @@ function main() {
 Time Complexity:
 O(n)
 
-[Editorial](https://www.hackerrank.com/challenges/reverse-a-linked-list/editorial)
+[Editorial](https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list/editorial)
 
-3 pointers.
+2 pointers.
