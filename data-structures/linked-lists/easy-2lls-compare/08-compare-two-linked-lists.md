@@ -97,18 +97,6 @@ const SinglyLinkedList = class {
     }
 };
 
-function printSinglyLinkedList(node, sep, ws) {
-    while (node != null) {
-        ws.write(String(node.data));
-
-        node = node.next;
-
-        if (node != null) {
-            ws.write(sep);
-        }
-    }
-}
-
 // Complete the compareLists function below.
 
 /*

@@ -108,18 +108,6 @@ const SinglyLinkedList = class {
     }
 };
 
-function printSinglyLinkedList(node, sep) {
-    while (node != null) {
-        process.stdout.write(String(node.data));
-
-        node = node.next;
-
-        if (node != null) {
-            process.stdout.write(sep);
-        }
-    }
-}
-
 /*
  * Complete the 'reversePrint' function below.
  *

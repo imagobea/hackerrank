@@ -88,18 +88,6 @@ class SinglyLinkedList {
     }
 }
 
-function printSinglyLinkedList(node: SinglyLinkedListNode | null, sep: string, ws: any): void {
-    while (node !== null) {
-        ws.write(String(node.data));
-
-        node = node.next;
-
-        if (node !== null) {
-            ws.write(sep);
-        }
-    }
-}
-
 /* 
    A linked list is said to contain a cycle if any node is visited more than once while traversing the list 
    @function hasycle
